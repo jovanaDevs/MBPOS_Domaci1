@@ -4,6 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 <h1>SSSSs</h1>
+<form [formGroup]="credentials" (ngSubmit)="login()">
+
+  <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-input type="email" placeholde="Email" formControlName="email"></ion-input>
+  
+  </ion-item>
+  <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-input type="password" placeholde="Password" formControlName="password"></ion-input>
+  
+  </ion-item>
+
+<ion-button expand="full" type="submit">Prijavi se</ion-button>
+<ion-button expand="full" type="button" (click)="register()">Registruj se</ion-button>
+</form>
 </ion-content>
