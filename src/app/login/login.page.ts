@@ -37,6 +37,7 @@ async register(){
   const user =await this.authService.register(this.credentials.value);
   await loading.dismiss();
   if(user){
+  
 this.router.navigateByUrl('tabs/tab1',{replaceUrl:true});
   }else{
     this.showAlert('Registracija nije uspela!','Probajte ponovo!');
