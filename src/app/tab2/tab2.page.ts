@@ -8,13 +8,14 @@ import { AuthService } from '../auth.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
+  email: string;
   constructor(
     private authService:AuthService,
     private router: Router
   ) {}
-  async showLogUot(){
-   
+  async takeEmail(){
+    
+    this.authService;
       
     
   }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FirestoreModule } from '@angular/fire/firestore';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { signOut } from '@firebase/auth';
 
@@ -7,7 +8,8 @@ import { signOut } from '@firebase/auth';
 })
 export class AuthService {
 
-  constructor(private auth: Auth) { }
+  constructor(private auth: Auth,
+    ) { }
   async register({ email, password }: { email: string, password: string }) {
     try {
       const user =await createUserWithEmailAndPassword(this.auth, email, password);
@@ -18,6 +20,7 @@ export class AuthService {
     }
 
   }
+ 
   async login({ email, password }: { email: string, password: string }) {
     try {
       const user =await signInWithEmailAndPassword(this.auth, email, password);
