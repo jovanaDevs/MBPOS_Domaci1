@@ -1,7 +1,7 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
     <ion-title color="primary">
-      Moji recepti
+     Moji recepti
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -25,24 +25,25 @@
       
     <div class="date">
     
-      <ion-card-title color="primary" class="ion-float-left">{{ recepie.title }}</ion-card-title>
+      <ion-card-title color="primary" class="ion-float-left"><strong>{{ recepie.title }}</strong></ion-card-title>
         <ion-badge class="ion-float-right" *ngIf="recepie.difficulty == 1" color="light">Za pocetnike</ion-badge>
         <ion-badge class="ion-float-right" *ngIf="recepie.difficulty == 2" color="medium">Lako</ion-badge>
         <ion-badge class="ion-float-right" *ngIf="recepie.difficulty == 3" color="dark">Srednje</ion-badge>
         <ion-badge class="ion-float-right" *ngIf="recepie.difficulty == 4" color="primary">Tesko</ion-badge>
         <ion-badge class="ion-float-right" *ngIf="recepie.difficulty == 5" color="danger">Veoma tesko</ion-badge>
     </div>
-      
+    <br>
+      <p> {{recepie.date}}</p>
     </ion-card-header>
-  
-    <ion-card-content>
-      <p>
-     {{recepie.date}}</p>
+   
+    <ion-card-content class="description">
+      
       {{recepie.description}}
     </ion-card-content>
   
     <ion-button fill="clear" (click)="deleteRecepie(recepie)"><ion-icon name="trash-outline" ></ion-icon>Obrisi</ion-button>
     <ion-button fill="clear" (click)="goToUpdatePage(recepie)"><ion-icon name="create-outline" ></ion-icon>Izmeni</ion-button>
+    
   </ion-card>
 </ion-list>
 
@@ -71,11 +72,11 @@
             </ion-item>
               <ion-item>
                 <ion-select placeholder="Tezina pripreme" [(ngModel)]="difficulty">
-                  <ion-select-option value="1">1</ion-select-option>
-                  <ion-select-option value="2">2</ion-select-option>
-                  <ion-select-option value="3">3</ion-select-option>
-                  <ion-select-option value="4">4</ion-select-option>
-                  <ion-select-option value="5">5</ion-select-option>
+                  <ion-select-option value="1">Za pocetnike</ion-select-option>
+                  <ion-select-option value="2">Lako</ion-select-option>
+                  <ion-select-option value="3">Srednje</ion-select-option>
+                  <ion-select-option value="4">Tesko</ion-select-option>
+                  <ion-select-option value="5">Veoma tesko</ion-select-option>
                   
                 </ion-select>
               </ion-item>

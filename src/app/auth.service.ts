@@ -7,13 +7,13 @@ import { signOut } from '@firebase/auth';
   providedIn: 'root'
 })
 export class AuthService {
-
+email: string;
   constructor(private auth: Auth,
     ) { }
   async register({ email, password }: { email: string, password: string }) {
     try {
       const user =await createUserWithEmailAndPassword(this.auth, email, password);
-      
+      this.email=email;
       return user;
     } catch (e) {
       return null; 
@@ -24,6 +24,8 @@ export class AuthService {
   async login({ email, password }: { email: string, password: string }) {
     try {
       const user =await signInWithEmailAndPassword(this.auth, email, password);
+      this.email=email;
+      
       return user;
     } catch (e) {
       return null; 
@@ -32,6 +34,7 @@ export class AuthService {
   }
 
   logout() {
+    this.email=null;
     return signOut(this.auth);
    }
 }
